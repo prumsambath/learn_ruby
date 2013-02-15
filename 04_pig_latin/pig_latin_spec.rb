@@ -68,5 +68,13 @@ describe "#translate" do
   # Test-driving bonus:
   # * write a test asserting that capitalized words are still capitalized (but with a different initial capital letter, of course)
   # * retain the punctuation from the original phrase
+  it "capitalized words are still capitalized" do
+    s = translate("Ruby Programming")
+    s.should == "Ubyray Ogrammingpray"
+  end
 
+  it "retains punctuation" do
+    s = translate("Ruby Programming! Have fun.")
+    s.should == "Ubyray Ogrammingpray! Avehay unfay."
+  end
 end
