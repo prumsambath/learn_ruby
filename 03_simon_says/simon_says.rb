@@ -7,9 +7,7 @@ def shout(word)
 end
 
 def repeat(word, times=2)
-  text = ""
-  1.upto(times) { text << word << " " }
-  text.chomp(" ")
+  ((word + ' ') * times).chomp(' ')  
 end
 
 def start_of_word(word, length)
@@ -21,7 +19,6 @@ def first_word(word)
 end
 
 def titleize(word)
-  little_words = %[and over the]
-  text = word.split.each { |w| w.capitalize! unless little_words.include?(w) }.join(" ")
-  text[0].capitalize << text[1..-1]
+  skipped_words = %[and over the]
+  word.capitalize.gsub(/\w+/) { |w| skipped_words.include?(w) ? w : w.capitalize }  
 end
